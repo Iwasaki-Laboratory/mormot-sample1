@@ -1,0 +1,15 @@
+# docker-compose.yaml
+version: '3.8'
+
+services:
+  # 1. アプリケーションサービス (mORMot2 Webサーバー)
+  webapp:
+    # Dockerfileはプロジェクトルートにあることを指定
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: webapp:latest
+    container_name: webapp
+    
+    ports:
+      - "8080:8080"

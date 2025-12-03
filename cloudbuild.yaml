@@ -1,0 +1,45 @@
+# cloudbuild.yaml
+# ==============================================================================
+#   Step 1: Build container image using Dockerfile
+# ==============================================================================
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    id: "Build image"
+    args:
+      [
+        "build",
+        "-t",
+        "asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/webapp:latest",
+        "."
+      ]
+
+# ==============================================================================
+#   Step 2: Push to Artifact Registry
+# ==============================================================================
+  - name: "gcr.io/cloud-builders/docker"
+    id: "Push image"
+    args:
+      [
+        "push",
+        "asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/webapp:latest"
+      ]
+
+# ==============================================================================
+#   Step 3: Deploy to Cloud Run (using gcloud)
+# ==============================================================================
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: "Deploy to Cloud Run"
+    args:
+      [
+        "run",
+        "deploy",
+        "webapp",
+        "--image=asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/webapp:latest",
+        "--region=asia-northeast1",
+        "--platform=managed",
+        "--allow-unauthenticated",
+        "--port=8080"
+      ]
+
+images:
+  - "asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/webapp:latest"
