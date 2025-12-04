@@ -1,4 +1,8 @@
 # cloudbuild.yaml
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 # ==============================================================================
 #   Step 1: Build container image using Dockerfile
 # ==============================================================================
