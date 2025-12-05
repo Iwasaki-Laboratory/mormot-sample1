@@ -41,9 +41,21 @@ steps:
         "--image=asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/webapp:latest",
         "--region=asia-northeast1",
         "--platform=managed",
-        "--allow-unauthenticated",
         "--port=8080"
       ]
+
+# ==============================================================================
+#   Step 4: Add IAM policy — allow allUsers as Cloud Run Invoker
+# ==============================================================================
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - run
+      - services
+      - add-iam-policy-binding
+      - webapp
+      - --region=asia-northeast1
+      - --member=allUsers
+      - --role=roles/run.invoker
 
 images:
   - "asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/webapp:latest"
