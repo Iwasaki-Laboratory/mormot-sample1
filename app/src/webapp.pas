@@ -31,7 +31,7 @@ const INDEX_HTML: RawUtf8 =
   '<html lang="ja">' +
   '<meta charset="UTF-8">' +
   '<title>' +
-  'Web Applicatioin Sample' +
+  'Web Application Sample' +
   '</title>' +
   '<body style="font-size:24px;">' +
   '<p>' +
