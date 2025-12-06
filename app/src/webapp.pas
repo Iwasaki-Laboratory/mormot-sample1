@@ -5,6 +5,7 @@ interface
 uses
   Classes,
   SysUtils,
+  mormot.core.base,
   mormot.core.os,
   mormot.net.http,
   mormot.net.async;
@@ -25,8 +26,10 @@ implementation
 const
   PORT = '8080';
 
-const INDEX_HTML = 
-  '<html>' +
+const INDEX_HTML: RawUtf8 = 
+  '<!DOCTYPE html>' +
+  '<html lang="ja">' +
+  '<meta charset="UTF-8">' +
   '<title>' +
   'Web Applicatioin Sample' +
   '</title>' +
