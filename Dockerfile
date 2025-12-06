@@ -21,7 +21,7 @@ RUN wget -q -O /tmp/mormot2.zip https://github.com/synopse/mORMot2/archive/refs/
 
 # mORMot2 static を公式サイトから取得
 RUN wget -q -O /tmp/mormot2static.7z https://synopse.info/files/mormot2static.7z && \
-    7za x /tmp/mormot2static.7z -o./opt/static && \
+    7za x /tmp/mormot2static.7z -o/opt/static && \
     rm /tmp/mormot2static.7z
 
 # ホストからアプリケーションソースコードのコピー

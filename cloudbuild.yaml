@@ -41,7 +41,8 @@ steps:
         "--image=asia-northeast1-docker.pkg.dev/$PROJECT_ID/webapp/webapp:latest",
         "--region=asia-northeast1",
         "--platform=managed",
-        "--port=8080"
+        "--port=8080",
+        "--cpu-boost"
       ]
 
 # ==============================================================================
