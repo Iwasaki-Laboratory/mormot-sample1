@@ -29,10 +29,12 @@ const
 const INDEX_HTML: RawUtf8 = 
   '<!DOCTYPE html>' +
   '<html lang="ja">' +
+  '<head>' +
   '<meta charset="UTF-8">' +
   '<title>' +
   'Web Application Sample' +
   '</title>' +
+  '</head>' +
   '<body style="font-size:24px;">' +
   '<p>' +
   'Free Pascal + mORMot2' +
